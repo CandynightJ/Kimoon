@@ -1,0 +1,13 @@
+<h1><strong>Actividades</strong></h1>
+
+{% if lista_actividades %}
+    <ul>
+        {% for actividad in lista_actividades %}
+            <li>
+                <a href="{% url 'buscador:detalles' actividad.pk %}"> {{ actividad.nombre }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay actividades disponibles</p>
+{% endif %}

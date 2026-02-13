@@ -1,0 +1,114 @@
+<!-- Información general -->
+<h1>{{ actividad.nombre }}</h1>
+<h3>{{ actividad.descripcion_larga }}</h3>
+
+<!-- Tipo de actividad -->
+{% if actividad.tipo %}
+    <h3>Tipo de actividad: {{ actividad.get_tipo_display }}</h3>
+{% endif %}
+
+<!-- Género -->
+{% if actividad.genero %}
+    <h3>Género: {{actividad.genero}}</h3>
+{% endif %}
+
+<!-- Grado o edad -->
+{% if actividad.grado_min or actividad.grado_max %}
+    {% if actividad.grado_min and actividad.grado_max %}
+        {% if actividad.grado_min == actividad.grado_max %}
+            <h3>Grado: {{ actividad.get_grado_min_display }}</h3>
+        {% else %}
+            <h3>Grado: Desde {{ actividad.get_grado_min_display }} hasta {{ actividad.get_grado_max_display }}</h3>
+        {% endif %}
+    {% elif actividad.grado_min %}
+        <h3>Grado: Desde {{ actividad.get_grado_min_display }}</h3>
+    {% elif actividad.grado_max %}
+        <h3>Grado: Hasta {{ actividad.get_grado_max_display }}</h3>
+    {% endif %}
+{% else %}
+    {% if actividad.edad_min or actividad.edad_max %}
+        {% if actividad.edad_min and actividad.edad_max %}
+            {% if actividad.edad_min == actividad.edad_max %}
+                <h3>Edad: {{ actividad.edad_min }} años</h3>
+            {% else %}
+                <h3>Edades: Desde {{ actividad.edad_min }} hasta {{ actividad.edad_max }} años</h3>
+            {% endif %}
+        {% elif actividad.edad_min %}
+            <h3>Edad: Desde {{ actividad.edad_min }} años</h3>
+        {% elif actividad.edad_max %}
+            <h3>Edad: Hasta {{ actividad.edad_max }} años</h3>
+        {% endif %}
+    {% else %}
+        <h3>Edad/Grado: Por confirmar</h3>
+    {% endif %}
+{% endif %}
+
+<!-- Modalidad y lugar -->
+{% if actividad.modalidad %}
+    <h3>Modalidad: {{ actividad.get_modalidad_display }}</h3>
+{% endif %}
+
+
+{% if actividad.modalidad != "O" and actividad.lugar %}
+    <h3>Lugar: {{ actividad.lugar }}</h3>
+{% endif %}
+
+<!-- Costo -->
+{% if actividad.costo %}
+    {% if actividad.costo == 0 %}
+        <h3>Costo: Gratis</h3>
+    {% else %}
+        <h3>Costo: ${{ actividad.costo }}</h3>
+    {% endif %}
+{% endif %}
+
+<!-- Duracion y fechas -->
+{% if actividad.duracion %}
+    <h3>Duración de la actividad: {{ actividad.duracion }}</h3>
+{% endif %}
+
+{% if actividad.inicio_postulacion and actividad.cierre_postulacion %}
+    {% if actividad.inicio_postulacion == actividad.cierre_postulacion %}
+        <h3>Inscripción: {{ actividad.inicio_postulacion }}</h3>
+    {% else %}
+        <h3>Inscripciones: Desde {{ actividad.inicio_postulacion }} hasta {{ actividad.cierre_postulacion }}</h3>
+    {% endif %}
+{% elif actividad.inicio_postulacion %}
+    <h3>Inscripciones desde: {{ actividad.inicio_postulacion }}</h3>
+{% elif actividad.cierre_postulacion %}
+    <h3>Inscripciones hasta: {{ actividad.cierre_postulacion }}</h3>
+{% else %}
+    <h3>Inscripciones: Por confirmar</h3>
+{% endif %}
+
+{% if actividad.inicio_actividad and actividad.termino_actividad %}
+    {% if actividad.inicio_actividad == actividad.termino_actividad %}
+        <h3>Día de la actividad: {{ actividad.inicio_actividad }}</h3>
+    {% else %}
+        <h3>Fechas de la actividad: Desde {{ actividad.inicio_actividad }} hasta {{ actividad.termino_actividad }}</h3>
+    {% endif %}
+{% elif actividad.inicio_actividad %}
+    <h3>Actividad desde: {{ actividad.inicio_actividad }}</h3>
+{% elif actividad.termino_actividad %}
+    <h3>Actividad hasta: {{ actividad.termino_actividad }}</h3>
+{% else %}
+    <h3>Fechas de la actividad: Por confirmar</h3>
+{% endif %}
+
+<!-- Más información -->
+{% if actividad.organizador %}
+    <h3>Organizador: {{ actividad.organizador }}</h3>
+{% endif %}
+
+{% if actividad.link %}
+    <h3><a href="{{ actividad.link }}" target="_blank">Mas información</a></h3>
+{% endif %}
+
+<br>
+{% if actividad.organizador %}
+    <h4>
+        {% for area in actividad.area.all %}
+            #{{ area }} 
+        {% endfor %}
+    </h4>
+{% endif %}
