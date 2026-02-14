@@ -1,3 +1,8 @@
+<a href="{% url 'buscador:inicio_buscador' %}">
+    <button type="button">Volver</button>
+</a>
+
+<!DOCTYPE html>
 <!-- Información general -->
 <h1>{{ actividad.nombre }}</h1>
 <h3>{{ actividad.descripcion_larga }}</h3>
@@ -9,7 +14,7 @@
 
 <!-- Género -->
 {% if actividad.genero %}
-    <h3>Género: {{actividad.genero}}</h3>
+    <h3>Género: {{actividad.get_genero_display}}</h3>
 {% endif %}
 
 <!-- Grado o edad -->

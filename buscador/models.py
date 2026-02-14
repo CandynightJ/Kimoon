@@ -5,7 +5,7 @@ from django_countries import countries
 GENEROS = [
     ("F", "Femenino"),
     ("M", "Masculino"),
-    ("T", "Todos"),
+    ("T", "Mixto"),
 ]
 
 GRADOS = [
