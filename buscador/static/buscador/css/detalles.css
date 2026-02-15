@@ -1,0 +1,29 @@
+.panel-titulo {
+    background-color: #70b3c7 !important;
+    color: white !important;
+}
+
+.cuerpo {
+    background-color: #e9f9ff !important;
+}
+
+.panel-descripcion {
+    background-color: white !important;
+}
+
+.descripcion-texto {
+    color: #364549 !important;
+}
+
+.panel-info-texto {
+    color: white !important;
+}
+
+.panel-info {
+    background-color: #70b3c7 !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.panel-info:hover {
+    background-color: #5095aa !important;
+}

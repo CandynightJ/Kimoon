@@ -1,0 +1,41 @@
+.panel-titulo {
+    background-color: #70b3c7 !important;
+    color: white !important;
+}
+
+.cuerpo {
+    background-color: #e9f9ff !important;
+}
+
+.boton-detalles {
+    color: #469dba !important;
+    border-color: #469dba !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.boton-detalles:hover {
+    background-color: #469dba !important;
+    border-color: #469dba !important;
+    color: white !important;
+}
+
+.boton-detalles:active {
+    background-color: #469dba !important;
+    border-color: #469dba !important;
+    color: white !important;
+}
+
+.boton-filtrar {
+    background-color: #469dba !important;
+    border-color: #469dba !important;
+}
+
+.boton-filtrar:hover{
+    background-color: #348eac !important;
+    border-color: #348eac !important;
+}
+
+.boton-filtrar:active {
+    background-color: #348eac !important;
+    border-color: #348eac !important;
+}
