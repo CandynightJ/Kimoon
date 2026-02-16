@@ -39,3 +39,16 @@
     background-color: #348eac !important;
     border-color: #348eac !important;
 }
+
+.barra-busqueda:focus {
+    border-color: #469dba !important;
+}
+
+.filtro:focus {
+    border-color: #469dba !important;
+}
+
+.check:checked {
+    background-color: #469dba;
+    border-color: #469dba;
+}
